@@ -1,0 +1,165 @@
+html, body {
+   margin: 0;
+   height: 100%;
+   background: url("../heart.png"); 
+
+   font-family: "Titan One", sans-serif;
+   font-weight: 400;
+   font-style: normal;
+
+   --top-bar-div: rgba(115, 113, 252, 0.9);
+   --store-body-color: rgba(157, 139, 248, 0.9);
+   --button-not-selected-color: rgb(151, 234, 210);
+   --button-selected-color: rgb(254, 147, 140);
+}
+#svg-heart {
+   margin: auto;
+}
+#heart-path:hover {
+   transform: scale(1.1);
+   stroke: red;
+   transition: stroke 300ms linear, transform 300ms linear;
+}
+#heart-path:not(:hover) {
+   transform: scale(1.0);
+   stroke: rgb(254, 147, 140);
+   transition: stroke 300ms linear, transform 300ms linear;
+}
+#heart-path:active {
+   transform: scale(1);
+   stroke: #cc0000;
+   transition: stroke 50ms linear, transform 50ms linear;
+}
+
+#store {
+   width: 90%;
+   height: 100%;
+   margin: auto;
+   background: var(--store-body-color);
+   border-top-left-radius: 25px;
+   border-bottom-left-radius: 25px;
+   overflow-y: scroll;
+   
+   scrollbar-width: auto;
+   scrollbar-color: var(--top-bar-div);
+}
+/* Chrome, Edge, and Safari */
+#store::-webkit-scrollbar {
+   width: 16px;
+}
+#store::-webkit-scrollbar-track {
+   background: rgba(0, 0, 0, 0);
+}
+#store::-webkit-scrollbar-thumb {
+   background-color: var(--top-bar-div);            
+}
+
+store-item {
+   display: inline-table;
+   height: fit-content;
+}
+
+store-item div {
+   margin: auto;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+}
+store-item:hover {
+   background: rgba(255, 255, 255, 0.411);
+   transition: background 100ms linear;
+}
+
+store-item button {
+   height: 100%;
+   width: 100%;
+   border-radius: 25px;
+   border: 1px solid rgba(0, 0, 0, 0.1);
+}
+store-item button:hover {
+   background: var(--button-selected-color);
+   transition: background 100ms linear;
+}
+store-item button:not(:hover) {
+   background: var(--button-not-selected-color);
+   transition: background 500ms linear;
+}
+store-item button:disabled {
+   background: var(--top-bar-div);
+   transition: background 500ms linear;
+}
+
+store-item table {
+   table-layout: fixed;
+   width: 100%;
+   height: 100%;
+}
+
+.store-item-text {
+   padding: 0 10px;
+}
+
+upgrade-table button {
+   position: relative;
+   height: 80px;
+   width: 96%;
+   margin: 2px auto;
+}
+upgrade-table .hovertext {
+   visibility: hidden;
+   background-color: black;
+   color: #fff;
+   text-align: center;
+   border-radius: 5px;
+   padding: 5px 10px;
+
+   position: absolute;
+   z-index: 1;
+}
+
+upgrade-table button:hover .hovertext {
+   visibility: visible;
+   pointer-events: none;
+   position: absolute;
+   top: -20px;
+   left: 0;
+   right: 0;
+   font-size: smaller;
+}
+
+.upgrade-container {
+   display: grid;
+   grid-template-columns: repeat(auto-fill,minmax(20%, 1fr));
+}
+
+#menu-container {
+   background: var(--top-bar-div);
+   border-radius: 25px;
+   width: 90%;
+   margin: auto;
+   display: flex;
+}
+
+#heart-info-table {
+   margin: 10px;
+   background: var(--store-body-color);
+   border-radius: 25px;
+   width: 60%;
+}
+
+#heart-counter, #hps, #hpc {
+   padding: 0 2%;
+}
+
+#heart-counter {
+   font-size: xx-large;
+   border-bottom: 1px solid black;
+}
+
+#hps, #hpc {
+   width: 50%;
+   font-size: x-large;
+   
+}
