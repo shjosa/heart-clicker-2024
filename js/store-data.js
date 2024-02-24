@@ -207,10 +207,11 @@ class AutoClicker extends MainItem {
       this.upgradeList.push(
          new UpgradeItem(
             this.itemName + '2',
-            "Total hps for this item increased by 1.5% per number of this item owned.",
+            "Total hps multiplier for this item increased by 0.001 for the number of times you've clicked the heart since purchasing.",
             3, 
             true, 
-            function() { return (_this.amount * 0.015); }));
+            function() { return (numberClicked * 0.001); },
+            function() { numberClicked = 0; }));
       this.upgradeList.push(
          new UpgradeItem(
             this.itemName + '3', 
@@ -267,7 +268,7 @@ class AutoClicker extends MainItem {
          new UpgradeItem(
             this.itemName + '10',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -339,7 +340,7 @@ class ItemTwo extends MainItem {
          new UpgradeItem(
             this.itemName + '9',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -399,7 +400,7 @@ class ItemThree extends MainItem {
          new UpgradeItem(
             this.itemName + '8',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -413,17 +414,17 @@ class ItemFour extends MainItem {
       this.upgradeList.push(
          new UpgradeItem(
             this.itemName + "1",
-            "Increases hpc multiplier by 1.",
+            "Increases hpc multiplier by 2.",
             2250, 
             false, 
-            function() { return (1); }));
+            function() { return (2); }));
       this.upgradeList.push(
          new UpgradeItem(
             this.itemName + "2",
-            "Increases future item costs by 10%, but doubles core power.",
+            "Increases future item costs by 10%, but doubles core power and increases hps by 1.",
             4500, 
             true, 
-            function() { return (0); },
+            function() { return (1); },
             function() { _this.power *= 2;
                          _this.costMultiplier -= 0.1; }));
       this.upgradeList.push(
@@ -501,7 +502,7 @@ class ItemFour extends MainItem {
          new UpgradeItem(
             this.itemName + '8',
             "???",
-            0, 
+            800000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -553,7 +554,7 @@ class ItemFive extends MainItem {
          new UpgradeItem(
             this.itemName + '5',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -567,8 +568,30 @@ class ItemSix extends MainItem {
       this.upgradeList.push(
          new UpgradeItem(
             this.itemName + '1',
+            "Admittedly, I'm running out of ideas! Hpc increased by 30% of hps.",
+            160000, 
+            false, 
+            function() { return (_this.amount * _this.power * _this.getMultiplier() * 0.3); }));
+      this.upgradeList.push(
+         new UpgradeItem(
+            this.itemName + '2',
+            "Click impact increased by 100%",
+            175000, 
+            false, 
+            function() { return (0); },
+            function() { _this.clickImpact += 1; }));
+      this.upgradeList.push(
+         new UpgradeItem(
+            this.itemName + '3',
+            "Hps multiplier increased by amount owned.",
+            200000, 
+            true, 
+            function() { return (_this.amount); }));
+      this.upgradeList.push(
+         new UpgradeItem(
+            this.itemName + '4',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));
@@ -583,7 +606,7 @@ class ItemSeven extends MainItem {
          new UpgradeItem(
             this.itemName + '1',
             "???",
-            0, 
+            1000000, 
             true, 
             function() { return (0); },
             function() { _this.completeItem() }));

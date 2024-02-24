@@ -36,7 +36,7 @@ class UpgradeTable extends HTMLElement {
       upgradeDiv.id = className + "-upgrade-container";
 
       for (let i of upgradeList) {
-         if (i.price != 0) {
+         if (i.price != 1000000) {
             let appendableButton = i.createButton();
    
             upgradeDiv.appendChild(appendableButton);

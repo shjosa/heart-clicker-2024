@@ -1,6 +1,8 @@
 // Money babyyy.
 let hearts = 0;
 
+let numberClicked = 0;
+
 let intervalE = 1000;
 
 const urlString = window.location.search;
@@ -18,6 +20,7 @@ let clickPower = baseClickPower;
 // The most important part of the game, profits.
 function increaseHearts() {
    hearts += clickPower;
+   numberClicked++;
    displayHearts();
 }
 
