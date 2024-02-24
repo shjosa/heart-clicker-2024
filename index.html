@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Heart Clicker 2024</title>
+      <link rel="stylesheet" href="styles/main.css">
+
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Titan+One&display=swap" rel="stylesheet">
+   </head>
+   <body>
+      <!-- 
+         Don't ask me how this works, css is hell for me still.
+         From what I have in my head, the best way I decided to organize this is
+         through tables, basically.
+         This is also a loose amalgamation of versions of ideas put together,
+         initially starting with everything using <div>s until I realized that
+         tables would do a better job.
+         Instead of trying to re-adjust everything into these tables cleanly, I just
+         tossed the <div>s I already was working with into the tables.
+      -->
+      <table style="height: 100%;">
+         <tbody>
+            <tr style="height: 20%;">
+               <td>
+                  <div id="menu-container">
+                     <table id="heart-info-table">
+                        <tr>
+                           <td id="heart-counter" colspan="2">&#10084; 0.00</td>
+                        </tr>
+                        <tr>
+                           <td id="hps">0.00 hps</td>
+                           <td id="hpc">0.01 hpc</td>
+                        </tr>
+                     </table>
+                     <svg 
+                        id="svg-heart"
+                        style="width: 20%; height: 100%;"
+                        viewBox="-90 -90 180 180"
+                     >
+                        <a href="javascript:increaseHearts();" id="test">
+                           <path 
+                              id="heart-path"
+                              d="
+                                 M -30 -30
+                                 L   0   0
+                                 L  30 -30"
+                              fill="none"
+                              stroke="pink"
+                              stroke-width="70"
+                              stroke-linecap="round"
+                           />
+                           <!-- <circle cx="10" cy="10" r="60"></circle> -->
+                        </a>
+                     </svg>
+                  </div>
+               </td>
+            </tr>
+            <tr>
+               <td>
+                  <div id="store">
+                     <store-item id="autoclicker"></store-item>
+                     <store-item id="itemTwo"></store-item>
+                     <store-item id="itemThree"></store-item>
+                     <store-item id="itemFour"></store-item>
+                     <store-item id="itemFive"></store-item>
+                     <store-item id="itemSix"></store-item>
+                     <store-item id="itemSeven"></store-item>
+                  </div>
+               </td>
+            </tr>
+         </tbody>
+      </table>
+      
+      
+      
+      <script src="js/store-data.js"></script>
+      <script src="js/components/upgrade-table.js"></script>
+
+      <script src="js/main.js"></script>
+
+      <script src="js/components/store-item-component.js"></script>
+   </body>
+</html>
